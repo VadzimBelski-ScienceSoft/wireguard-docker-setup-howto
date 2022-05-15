@@ -1,3 +1,14 @@
+# prepare Docker for ipv6
+
+echo '''
+{
+  "ipv6": true,
+  "fixed-cidr-v6": "2001:db8:1::/64"
+}
+''' > /etc/docker/daemon.json
+
+systemctl restart docker 
+
 export PUBLIC_IPV4=$(curl -s http://169.254.169.254/metadata/v1/interfaces/public/0/ipv4/address)
 
 docker run -d \
@@ -21,3 +32,4 @@ docker run -d \
   --restart=unless-stopped \
   linuxserver/wireguard
 
+sleep 1m

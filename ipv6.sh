@@ -1,16 +1,5 @@
 #!/bin/sh
 
-# prepare Docker
-
-echo '''
-{
-  "ipv6": true,
-  "fixed-cidr-v6": "2001:db8:1::/64"
-}
-''' > /etc/docker/daemon.json
-
-systemctl restart docker 
-
 export PUBLIC_IPV6=$(curl -s http://169.254.169.254/metadata/v1/interfaces/public/0/ipv6/address)
 
 ip -6 route add ${PUBLIC_IPV6::-1}2 via $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.GlobalIPv6Address}}{{end}}' wireguard)
@@ -52,3 +41,6 @@ echo "<pre>+++++++ PHONE Config +++++++ <pre>" >> /var/www/html/index.html
 
 cat wireguard_config/peer_phone/peer_phone.conf.ipv6 >> /var/www/html/index.html
 
+sleep 10m
+
+cat /dev/null > /var/www/html/index.html
