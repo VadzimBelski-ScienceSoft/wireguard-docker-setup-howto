@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 export PUBLIC_IPV6=$(curl -s http://169.254.169.254/metadata/v1/interfaces/public/0/ipv6/address)
+
+echo "Got IPV6 $PUBLIC_IPV6"
 
 ip -6 route add ${PUBLIC_IPV6::-1}2 via $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.GlobalIPv6Address}}{{end}}' wireguard)
 ip -6 route add ${PUBLIC_IPV6::-1}3 via $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.GlobalIPv6Address}}{{end}}' wireguard)

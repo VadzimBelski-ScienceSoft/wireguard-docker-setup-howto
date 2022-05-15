@@ -39,8 +39,13 @@ sysctl -p
 
 ```
 
+   3. Navigate to http://server_ip here you will find Wireguard client configs. Please note they will be deleted from public access with in 10 minutes, so hurry up.
+   4. Please check you IPv6 connectivity here https://test-ipv6.com/
+   5. You can check you public ip here to verify that tunnel works correctly https://whoer.net/ 
 
 
+# For developers
 
+To debug scripts please use "/var/log/cloud-init-output.log"
     
 
