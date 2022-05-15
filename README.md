@@ -2,7 +2,8 @@
 Wireguard setup using Docker on DigitalOcean
 
 1. Create DigitalOcean Account https://digitalocean.com
-2. Create a new droplet with the following settings:
+2. Download Wireguard Client app on your device https://www.wireguard.com/install/
+3. Create a new droplet with the following settings:
    You need to define User Data to run the following commands:
 ```
 #!/bin/bash
