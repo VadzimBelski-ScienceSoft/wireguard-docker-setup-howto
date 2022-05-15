@@ -1,4 +1,5 @@
-# Wireguard Docker IPV6 setup howto
+# Wireguard VPN with IPV6 external ip setup howto
+
 Wireguard setup using Docker on DigitalOcean
 
 1. Create DigitalOcean Account https://digitalocean.com
