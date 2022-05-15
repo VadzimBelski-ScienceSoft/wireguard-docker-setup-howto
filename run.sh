@@ -12,7 +12,7 @@ docker run -d \
   -p 51820:51820/udp \
   -v $(pwd)/wireguard_config:/config \
   -v /lib/modules:/lib/modules \
-  --sysctl="net.ipv4.ip_forward = 1" \
+  --sysctl="net.ipv4.ip_forward=1" \
   --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
   --sysctl="net.ipv6.conf.all.disable_ipv6=0" \
   --sysctl="net.ipv6.conf.all.forwarding=1" \
@@ -21,5 +21,3 @@ docker run -d \
   --restart=unless-stopped \
   linuxserver/wireguard
 
- 
- 
